@@ -1,7 +1,6 @@
-/chatLog.csv
-/chatLog.xlsx
-/luna.csv
-/luna2.csv
-/msv.csv
-/msv2017.csv
-/~$chatLog.xlsx
+*.csv
+*.xlsx
+/logs
+/.idea
+/__pycache__
+/venv
