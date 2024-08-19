@@ -1,5 +1,5 @@
 # chat2csv: Minecraft Chat Extractor
-This program extracts player chat data from Minecraft server logs, and then merge them into a clean single *.csv file.
+This program extracts chat data from Minecraft server logs, and then merge them into a clean single csv file.
 
 It supports four chat types:
 1. `ingame` - General in-game chat: `<{sender}> {content}`
@@ -12,13 +12,15 @@ It supports four chat types:
 1. Log files are saved in `[Server Directory]\logs\` by default. Each of them is compressed into a *.gz file.
 2. Choose a directory and move all the logs that you'd like to extract chat data from.
 3. Decompress *.gz files, and you will see *.log files. File names must be in a form of `yyyy-mm-dd-n.log`.
-4. Every log file should be in UTF-8 encoding (for now). If not, use a batch encoding converter.
+4. You can specify encodings of the log files and the final csv file with --src-enc and --dest-enc respectively.
 
 ### Run the extractor
-Run `python chat2csv.py --logdir [log directory] --csvpath [csv file path]`. `--csvpath` is optional. The program saves the output to `output.csv` as default.
+Run `python chat2csv.py --logdir [log directory] --csvpath [csv file path] --src-enc [encoding of the log files] --dest-enc [encoding of the csv file]`.
+`--csvpath` is optional. The program saves the output to `output.csv` as default.
+If not specified, the program will assume that the encoding of both log files and final csv file is `utf-8-sig`. Check how your log files are encoded in advance to prevent character breaking.
 
 ### CSV structure
-The output *.csv has 5 columns in total: `timestamp`, `type`, `sender`, `receiver`, `content`.
+The output csv has 5 columns in total: `timestamp`, `type`, `sender`, `receiver`, `content`.
 
 #### Example
 | timestamp           | type     | sender      | receiver    | content                                                                     |
